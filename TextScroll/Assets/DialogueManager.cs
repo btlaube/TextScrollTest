@@ -44,14 +44,14 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeSentence (string sentence)
     {
-        //GameObject.Find("AudioManager").GetComponent<AudioManager>().Play("Dialogue");
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().Play("Dialogue");
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
             yield return new WaitForSeconds(0.01f);
         }
-        //GameObject.Find("AudioManager").GetComponent<AudioManager>().Stop("Dialogue");
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().Stop("Dialogue");
     }
 
     void EndDialogue() {

@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
     public Rigidbody2D rb;
+    public SpriteRenderer sr;
     //public Animator animator;
     Vector2 movement;
 
@@ -14,7 +15,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
-
+        if (Input.GetAxisRaw("Horizontal") < 0) {
+            sr.flipX = true;
+        }
+        else if (Input.GetAxisRaw("Horizontal") > 0) {
+            sr.flipX = false;
+        }
         //animator.SetFloat("Horizontal", movement.x);
         //animator.SetFloat("Speed", movement.x);
     }
